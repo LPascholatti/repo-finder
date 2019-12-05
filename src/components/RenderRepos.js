@@ -4,6 +4,8 @@ export default class RenderRepos extends Component {
 
   render() {
     const { repositories } = this.props;
+    console.log("repositories", repositories)
+    console.log("typeof repositories", typeof repositories)
 
     const searchedItems = repositories.items
     console.log("searchedItems", searchedItems)

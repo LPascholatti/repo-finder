@@ -33,7 +33,8 @@ class SearchBarContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  repositories: state.repositories
+  repositories: state.repositories,
+  name: state.name
 })
 
 export default connect(mapStateToProps, {loadRepositories})(SearchBarContainer)

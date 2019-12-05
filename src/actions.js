@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const baseUrl = 'https://api.github.com/'
+const baseUrl = 'https://api.github.com'
 
 export const REPOSITORIES_FETCH = 'REPOSITORIES_FETCH'
 

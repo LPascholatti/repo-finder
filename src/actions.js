@@ -4,9 +4,9 @@ const baseUrl = 'https://api.github.com/'
 
 export const REPOSITORIES_FETCH = 'REPOSITORIES_FETCH'
 
-const repositoriesFetch = name => ({
+const repositoriesFetch = repositories => ({
   type: REPOSITORIES_FETCH,
-  payload: name
+  payload: repositories
 })
 
 export const loadRepositories = (name) => (dispatch, getState) => {

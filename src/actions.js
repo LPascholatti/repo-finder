@@ -9,12 +9,12 @@ const repositoriesFetch = name => ({
   payload: name
 })
 
-export const loadRepositories = () => (dispatch, getState) => {
+export const loadRepositories = (name) => (dispatch, getState) => {
   const state = getState()
   const { repositories } = state
 
   if (!repositories.length) {
-    request(`${baseUrl}`)
+    request(`${baseUrl}/search/repositories?q=${name}`)
     .then(response => {
       const action = repositoriesFetch(response.body)
       dispatch(action)

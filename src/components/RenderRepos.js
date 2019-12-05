@@ -1,26 +1,12 @@
 import React, { Component } from "react";
 
 export default class RenderRepos extends Component {
-  renderRepos(items) {
-    console.log("items", items);
-    const { name, description, url, language } = items;
-
-    return (
-      <div className="renderRepos">
-        <li key={name}>
-          <h4>{name}</h4>
-          <h5>{description}</h5>
-          <h5>
-            <a href={url}>{url}</a>
-          </h5>
-          <h5>{language}</h5>
-        </li>
-      </div>
-    );
-  }
 
   render() {
     const { repositories } = this.props;
+
+    const searchedItems = repositories.items
+    console.log("searchedItems", searchedItems)
 
     return (
       <div className="repositories-result">

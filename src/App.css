@@ -1,3 +1,12 @@
 .App {
   text-align: center;
 }
+
+.repositories-result ul {
+  list-style-type: none;
+}
+
+.rendered-repos li {
+  border: solid;
+  padding: 1rem;
+}

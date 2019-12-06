@@ -23,7 +23,7 @@ const searchedName = name => ({
   payload: name
 })
 
-const detailedUrl = url => ({
+export const detailedUrl = url => ({
   type: DETAIL_URL,
   payload: url
 })

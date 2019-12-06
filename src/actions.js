@@ -25,10 +25,10 @@ export const loadRepositories = (name) => (dispatch, getState) => {
   if (!repositories.length) {
     request(`${baseUrl}/search/repositories?q=${searchName}`)
     .then(response => {
-      const action = repositoriesFetch(response.body)
-      const action2 = searchedName(name)
-      dispatch(action)
-      dispatch(action2)
+      const fetchAction = repositoriesFetch(response.body)
+      const searchAction = searchedName(name)
+      dispatch(fetchAction)
+      dispatch(searchAction)
     })
     .catch(console.error)
   }

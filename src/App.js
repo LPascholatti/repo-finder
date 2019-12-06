@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import SearchBarContainer from "./components/SearchBarContainer";
 import RenderReposContainer from "./components/RenderReposContainer";
+import { Route } from "react-router-dom";
+import RepoDetailsContainer from './components/RepoDetailsContainer'
 
 function App() {
   return (
@@ -9,7 +11,10 @@ function App() {
       <header className="App-header">
         <SearchBarContainer />
       </header>
+      <main>
       <RenderReposContainer />
+      <Route path="repositories/:id" component={RepoDetailsContainer}/>
+      </main>
     </div>
   );
 }

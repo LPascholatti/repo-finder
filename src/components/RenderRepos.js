@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { loadRepository } from "../actions";
+import { connect } from 'react-redux'
 
-export default class RenderRepos extends Component {
-
+class RenderRepos extends Component {
   renderRepos(items) {
-    
     const {
       name,
       owner,
@@ -19,9 +19,7 @@ export default class RenderRepos extends Component {
     return (
       <div className="rendered-repos">
         <li key={name}>
-          <Link to={`repositories/${id}`}>
-            <h3 style={{ color: "blue" }}>{name}</h3>
-          </Link>
+          <h3 style={{ color: "blue" }}>{name}</h3>
           <h4> Owner:{owner.login}</h4>
           <h4>
             URL: <a href={url}>{url}</a>
@@ -30,6 +28,9 @@ export default class RenderRepos extends Component {
           <h4>Language: {language}</h4>
           <h4>Open Issues:{open_issues}</h4>
           <p>Description:{description}</p>
+          <Link to={`repositories/${id}`}>
+            <button onClick={() => loadRepository(`${url}`)}>Click For Details</button>
+          </Link>
           <br />
         </li>
         <br />
@@ -52,11 +53,11 @@ export default class RenderRepos extends Component {
 
     const mapDetailsUrl = () => {
       if (searchedItems !== undefined) {
-        return searchedItems.map(item => item.url)
+        return searchedItems.map(item => item.url);
       }
-    }
+    };
 
-    console.log("mapDetailsUrl", mapDetailsUrl())
+    console.log("mapDetailsUrl", mapDetailsUrl());
 
     return (
       <div className="repositories-result">
@@ -74,3 +75,11 @@ export default class RenderRepos extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  repositories: state.repositories,
+  name: state.name,
+  repository: state.repository
+})
+
+export default connect(mapStateToProps, {loadRepository})(RenderRepos)

@@ -1,23 +1,36 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class RenderRepos extends Component {
-
   renderRepos(items) {
     console.log(items);
-    const { name, url, watchers, language, open_issues } = items;
+    const {
+      name,
+      owner,
+      url,
+      watchers,
+      language,
+      open_issues,
+      description,
+      id
+    } = items;
     return (
       <div className="rendered-repos">
         <li key={name}>
-          <h3>Name: {name}</h3>
+          <Link to={`repositories/${id}`}>
+            <h3 style={{ color: "blue" }}>{name}</h3>
+          </Link>
+          <h4> Owner:{owner.login}</h4>
           <h4>
             URL: <a href={url}>{url}</a>
           </h4>
           <h4>Watchers: {watchers}</h4>
           <h4>Language: {language}</h4>
           <h4>Open Issues:{open_issues}</h4>
-          <br/>
+          <p>Description:{description}</p>
+          <br />
         </li>
-        <br/>
+        <br />
       </div>
     );
   }
@@ -42,8 +55,10 @@ export default class RenderRepos extends Component {
           {repositories.total_count !== undefined &&
             `You found ${repositories.total_count} repositories`}
         </h3>
-        <br/>
-          <div className='rendered-box'><ul>{mapItems()}</ul></div>
+        <br />
+        <div className="rendered-box">
+          <ul>{mapItems()}</ul>
+        </div>
         <br />
       </div>
     );

@@ -3,12 +3,18 @@ import request from 'superagent';
 const baseUrl = 'https://api.github.com'
 
 export const REPOSITORIES_FETCH = 'REPOSITORIES_FETCH'
+export const REPOSITORY_FETCH = 'REPOSITORY_FETCH'
 export const SEARCHED_NAME = 'SEARCHED_NAME'
 export const REPOSITORIES_ITEMS = 'REPOSITORIES_ITEMS'
 
 const repositoriesFetch = repositories => ({
   type: REPOSITORIES_FETCH,
   payload: repositories
+})
+
+const repositoryFetch = repository => ({
+  type: REPOSITORY_FETCH,
+  payload: repository
 })
 
 const searchedName = name => ({
@@ -32,4 +38,11 @@ export const loadRepositories = (name) => (dispatch, getState) => {
     })
     .catch(console.error)
   }
+}
+
+export const loadRepository = (name, owner) => (dispatch) => {
+  request(`${baseUrl}/repos/${owner}/${name}`)
+  .then(response => {
+    dispatch(repositoryFetch)
+  })
 }

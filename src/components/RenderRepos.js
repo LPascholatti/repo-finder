@@ -14,6 +14,7 @@ export default class RenderRepos extends Component {
       description,
       id
     } = items;
+
     return (
       <div className="rendered-repos">
         <li key={name}>

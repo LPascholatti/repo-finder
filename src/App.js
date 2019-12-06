@@ -9,9 +9,7 @@ function App() {
       <header className="App-header">
         <SearchBarContainer />
       </header>
-      <body>
-        <RenderReposContainer />
-      </body>
+      <RenderReposContainer />
     </div>
   );
 }

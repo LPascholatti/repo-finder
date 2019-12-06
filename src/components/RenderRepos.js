@@ -29,7 +29,7 @@ class RenderRepos extends Component {
           <h4>Open Issues:{open_issues}</h4>
           <p>Description:{description}</p>
           <Link to={`repositories/${id}`}>
-            <button onClick={() => loadRepository(`${url}`)}>Click For Details</button>
+            <button onClick={loadRepository(`${url}`)}>Click For Details</button>
           </Link>
           <br />
         </li>

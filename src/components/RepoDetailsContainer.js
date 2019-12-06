@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 
 class RepoDetailsContainer extends Component {
 
-  componentDidMount(){
-    this.props.loadRepository(this.props.match.params.url)
-  }
+  // componentDidMount(){
+  //   this.props.loadRepository(this.props.match.params.url)
+  // }
 
   render() {
     return (<RepoDetails

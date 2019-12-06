@@ -6,16 +6,18 @@ export default class RenderRepos extends Component {
     console.log(items);
     const { name, url, watchers, language, open_issues } = items;
     return (
-      <div>
+      <div className="Rendered Repos">
         <li key={name}>
-          <h4>{name}</h4>
+          <h3>Name: {name}</h3>
           <br />
           <h4>
-            <a href={url}>{url}</a>
+            <a href={url}>URL: {url}</a>
           </h4>
-          <h4>{watchers}</h4>
-          <h4>{language}</h4>
-          <h4>{open_issues}</h4>
+          <h4>Watchers: {watchers}</h4>
+          <h4>Language: {language}</h4>
+          <h4>Open Issues:{open_issues}</h4>
+          <br/>
+          <br/>
         </li>
       </div>
     );
@@ -43,6 +45,7 @@ export default class RenderRepos extends Component {
           {repositories.total_count !== undefined &&
             `You found ${repositories.total_count} repositories`}
         </h3>
+        <br/>
           <ul>{mapItems()}</ul>
         <br />
       </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 export default class RenderRepos extends Component {
 
@@ -12,16 +11,13 @@ export default class RenderRepos extends Component {
       watchers,
       language,
       open_issues,
-      description,
-      id
+      description
     } = items;
 
     return (
       <div className="rendered-repos">
         <li key={name}>
-          <Link to={`repositories/${id}`}>
             <h3 style={{ color: "blue" }}>{name}</h3>
-          </Link>
           <h4> Owner:{owner.login}</h4>
           <h4>
             URL: <a href={url}>{url}</a>

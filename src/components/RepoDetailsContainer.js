@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loadRepository } from '../actions';
-import RepoDetails from './RenderRepos';
+import RepoDetails from './RepoDetails';
 import { connect } from 'react-redux';
 
 class RepoDetailsContainer extends Component {

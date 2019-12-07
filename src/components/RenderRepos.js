@@ -19,7 +19,7 @@ class RenderRepos extends Component {
     return (
       <div className="rendered-repos">
         <li key={name}>
-          <Link to={`repositories/${id}`}>
+          <Link to={`/repositories/${id}`}>
             <h3 style={{ color: "blue" }}>{name}</h3>
           </Link>
           <h4> Owner:{owner.login}</h4>

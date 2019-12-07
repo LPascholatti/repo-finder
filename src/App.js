@@ -12,7 +12,7 @@ function App() {
         <SearchBarContainer />
       </header>
       <main>
-      <RenderReposContainer />
+      <Route path="/" component={RenderReposContainer}/> 
       <Route path="/repositories/:id" component={RepoDetailsContainer}/>
       </main>
     </div>

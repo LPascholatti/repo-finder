@@ -3,11 +3,11 @@ import request from 'superagent';
 const baseUrl = 'https://api.github.com'
 
 export const REPOSITORIES_FETCH = 'REPOSITORIES_FETCH'
-export const REPOSITORY_FETCH = 'REPOSITORY_FETCH'
+// export const REPOSITORY_FETCH = 'REPOSITORY_FETCH'
 export const SEARCHED_NAME = 'SEARCHED_NAME'
 export const REPOSITORIES_ITEMS = 'REPOSITORIES_ITEMS'
-export const DETAIL_URL = "DETAIL_URL"
-export const DETAIL_ID = "DETAIL_ID"
+// export const DETAIL_URL = "DETAIL_URL"
+// export const DETAIL_ID = "DETAIL_ID"
 
 const repositoriesFetch = repositories => ({
   type: REPOSITORIES_FETCH,

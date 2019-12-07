@@ -8,9 +8,8 @@ class RenderRepos extends Component {
       name,
       owner,
       html_url,
-      watchers,
+      stargazers_count,
       language,
-      open_issues,
       description,
       id
     } = items;
@@ -26,9 +25,8 @@ class RenderRepos extends Component {
           <h4>
             URL: <a href={html_url}>{html_url}</a>
           </h4>
-          <h4>Watchers: {watchers}</h4>
+          <h4>Stargazers: {stargazers_count}</h4>
           <h4>Language: {language}</h4>
-          <h4>Open Issues:{open_issues}</h4>
           <p>Description:{description}</p>
           <br />
           <Link to={`repositories/${id}`}> 

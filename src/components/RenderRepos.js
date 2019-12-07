@@ -19,6 +19,9 @@ class RenderRepos extends Component {
       <div className="rendered-repos">
         <li key={name}>
           <h3 style={{ color: "blue" }}>{name}</h3>
+          <div className="avatar">
+          <img src={owner.avatar_url} alt={name}/>
+          </div>
           <h4> Owner:{owner.login}</h4>
           <h4>
             URL: <a href={html_url}>{html_url}</a>

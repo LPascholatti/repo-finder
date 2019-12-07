@@ -1,6 +1,6 @@
 # Git Hub Finder
 
-## Search GitHub Repositories Tools
+## Search GitHub Repositories Tool
 
 Deployed on Netlify: https://frosty-panini-72ba85.netlify.com/
 

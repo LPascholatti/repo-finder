@@ -28,7 +28,9 @@ class RenderRepos extends Component {
           <h4>Open Issues:{open_issues}</h4>
           <p>Description:{description}</p>
           <br />
-          <Link to={`repositories/${id}`}> Details </Link>
+          <Link to={`repositories/${id}`}> 
+            <button>Details</button>
+          </Link>
         </li>
         <br />
       </div>

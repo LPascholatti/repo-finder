@@ -9,4 +9,11 @@
 .rendered-repos li {
   border: solid;
   padding: 1rem;
+  margin: 0.5rem;
+}
+
+.repo-details {
+  border: solid;
+  padding: 3rem;
+  margin: 1rem;
 }

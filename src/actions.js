@@ -7,6 +7,7 @@ export const REPOSITORY_FETCH = 'REPOSITORY_FETCH'
 export const SEARCHED_NAME = 'SEARCHED_NAME'
 export const REPOSITORIES_ITEMS = 'REPOSITORIES_ITEMS'
 export const DETAIL_URL = "DETAIL_URL"
+export const DETAIL_ID = "DETAIL_ID"
 
 const repositoriesFetch = repositories => ({
   type: REPOSITORIES_FETCH,
@@ -28,6 +29,11 @@ const detailedUrl = url => ({
   payload: url
 })
 
+const detailedId = id => ({
+  type: DETAIL_ID,
+  payload: id
+})
+
 export const loadRepositories = (name) => (dispatch, getState) => {
   const state = getState()
   const { repositories } = state
@@ -44,13 +50,15 @@ export const loadRepositories = (name) => (dispatch, getState) => {
   }
 }
 
-export const loadRepository = (url) => (dispatch) => {
+export const loadRepository = (id, url) => (dispatch) => {
   console.log("url loadRepository", url)
   request(`${url}`)
   .then(response => {
     const actionUrl = detailedUrl(url)
+    const actionId = detailedId(id)
     const actionResponse = repositoryFetch(response.body)
     dispatch(actionUrl)
+    dispatch(actionId)
     dispatch(actionResponse)
   })
   .catch(console.error)

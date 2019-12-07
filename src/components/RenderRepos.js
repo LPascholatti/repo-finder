@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { loadRepository } from "../actions";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 class RenderRepos extends Component {
   renderRepos(items) {
@@ -19,7 +18,9 @@ class RenderRepos extends Component {
     return (
       <div className="rendered-repos">
         <li key={name}>
-          <h3 style={{ color: "blue" }}>{name}</h3>
+          <Link to={`repositories/${id}`}>
+            <h3 style={{ color: "blue" }}>{name}</h3>
+          </Link>
           <h4> Owner:{owner.login}</h4>
           <h4>
             URL: <a href={url}>{url}</a>
@@ -28,9 +29,6 @@ class RenderRepos extends Component {
           <h4>Language: {language}</h4>
           <h4>Open Issues:{open_issues}</h4>
           <p>Description:{description}</p>
-          <Link to={`repositories/${id}`}>
-            <button onClick={loadRepository(`${url}`)}>Click For Details</button>
-          </Link>
           <br />
         </li>
         <br />
@@ -80,6 +78,6 @@ const mapStateToProps = state => ({
   repositories: state.repositories,
   name: state.name,
   repository: state.repository
-})
+});
 
-export default connect(mapStateToProps, {loadRepository})(RenderRepos)
+export default connect(mapStateToProps, null)(RenderRepos);

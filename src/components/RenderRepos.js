@@ -8,7 +8,7 @@ class RenderRepos extends Component {
     const {
       name,
       owner,
-      url,
+      html_url,
       watchers,
       language,
       open_issues,
@@ -24,7 +24,7 @@ class RenderRepos extends Component {
           </Link>
           <h4> Owner:{owner.login}</h4>
           <h4>
-            URL: <a href={url}>{url}</a>
+            URL: <a href={html_url}>{html_url}</a>
           </h4>
           <h4>Watchers: {watchers}</h4>
           <h4>Language: {language}</h4>

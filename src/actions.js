@@ -14,25 +14,25 @@ const repositoriesFetch = repositories => ({
   payload: repositories
 })
 
-const repositoryFetch = repository => ({
-  type: REPOSITORY_FETCH,
-  payload: repository
-})
+// const repositoryFetch = repository => ({
+//   type: REPOSITORY_FETCH,
+//   payload: repository
+// })
 
 const searchedName = name => ({
   type: SEARCHED_NAME,
   payload: name
 })
 
-const detailedUrl = url => ({
-  type: DETAIL_URL,
-  payload: url
-})
+// const detailedUrl = url => ({
+//   type: DETAIL_URL,
+//   payload: url
+// })
 
-const detailedId = id => ({
-  type: DETAIL_ID,
-  payload: id
-})
+// const detailedId = id => ({
+//   type: DETAIL_ID,
+//   payload: id
+// })
 
 export const loadRepositories = (name) => (dispatch, getState) => {
   const state = getState()
@@ -50,16 +50,17 @@ export const loadRepositories = (name) => (dispatch, getState) => {
   }
 }
 
-export const loadRepository = (id, url) => (dispatch) => {
-  console.log("url loadRepository", url)
-  request(`${url}`)
-  .then(response => {
-    const actionUrl = detailedUrl(url)
-    const actionId = detailedId(id)
-    const actionResponse = repositoryFetch(response.body)
-    dispatch(actionUrl)
-    dispatch(actionId)
-    dispatch(actionResponse)
-  })
-  .catch(console.error)
-}
+// export const loadRepository = (id, url) => (dispatch) => {
+//   console.log("function running")
+//   console.log("url loadRepository", url)
+//   request(`${url}`)
+//   .then(response => {
+//     const actionUrl = detailedUrl(url)
+//     const actionId = detailedId(id)
+//     const actionResponse = repositoryFetch(response.body)
+//     dispatch(actionUrl)
+//     dispatch(actionId)
+//     dispatch(actionResponse)
+//   })
+//   .catch(console.error)
+// }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class RenderRepos extends Component {
+
   renderRepos(items) {
     const {
       name,

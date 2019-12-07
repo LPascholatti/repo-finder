@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
-export default function RepoDetails() {
+export default function RepoDetails(props) {
+  const { name, description } = props.repository;
+
   return (
     <div>
-      
+      <h1>{`${name}`}</h1>
+      <h2>{`${description}`}</h2>
     </div>
-  )
+  );
 }

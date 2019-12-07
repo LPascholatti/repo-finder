@@ -6,8 +6,10 @@ export default function RepoDetails(props) {
 
   return (
     <div>
+      <main>
       <h1>{`${name}`}</h1>
       <h2>{`${description}`}</h2>
+      </main>
     </div>
   );
 }

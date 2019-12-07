@@ -77,8 +77,7 @@ class RenderRepos extends Component {
 
 const mapStateToProps = state => ({
   repositories: state.repositories,
-  name: state.name,
-  repository: state.repository
+  name: state.name
 });
 
 export default connect(mapStateToProps, null)(RenderRepos);

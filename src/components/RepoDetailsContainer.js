@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { loadRepository } from '../actions';
 import RepoDetails from './RenderRepos';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 class RepoDetailsContainer extends Component {
 
   componentDidMount(){
-    this.props.loadRepository(this.props.match.params.id)
+    console.log("running?")
+    this.props.loadRepository(Number(this.props.match.params.id))
   }
 
   render() {

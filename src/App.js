@@ -13,7 +13,7 @@ function App() {
       </header>
       <main>
       <RenderReposContainer />
-      <Route path="repositories/:id" component={RepoDetailsContainer}/>
+      <Route path="/repositories/:id" component={RepoDetailsContainer}/>
       </main>
     </div>
   );

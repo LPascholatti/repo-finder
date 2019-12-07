@@ -17,3 +17,8 @@
   padding: 3rem;
   margin: 1rem;
 }
+
+.avatar img {
+  max-width: 4rem;
+  max-height: 4rem;
+}

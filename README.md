@@ -2,6 +2,8 @@
 
 ## Search GitHub Repositories Tools
 
+Deployed on Netlify: https://frosty-panini-72ba85.netlify.com/
+
 ### Created using ```create-react-app```, managing states with Redux. 
 
 To search for a GitHub repository you can write a "Repository Name" in the input box located in the page's header. 

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import repositories from '../reducers/repositories';
-import name from './name'
+import repository from '../reducers/repository';
+import name from './name';
 
 export default combineReducers({
   repositories,
+  repository,
   name
 })

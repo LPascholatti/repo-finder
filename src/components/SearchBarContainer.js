@@ -17,7 +17,7 @@ class SearchBarContainer extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.props.loadRepositories(this.state)
+    this.props.loadRepositories(this.state.name)
     this.setState({
       name: ''
     })

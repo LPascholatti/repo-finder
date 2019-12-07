@@ -1,34 +1,34 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class RenderRepos extends Component {
+class RenderRepos extends Component {
   renderRepos(items) {
-    console.log(items);
     const {
       name,
       owner,
-      url,
+      html_url,
       watchers,
       language,
       open_issues,
       description,
       id
     } = items;
+
     return (
       <div className="rendered-repos">
         <li key={name}>
-          <Link to={`repositories/${id}`}>
-            <h3 style={{ color: "blue" }}>{name}</h3>
-          </Link>
+          <h3 style={{ color: "blue" }}>{name}</h3>
           <h4> Owner:{owner.login}</h4>
           <h4>
-            URL: <a href={url}>{url}</a>
+            URL: <a href={html_url}>{html_url}</a>
           </h4>
           <h4>Watchers: {watchers}</h4>
           <h4>Language: {language}</h4>
           <h4>Open Issues:{open_issues}</h4>
           <p>Description:{description}</p>
           <br />
+          <Link to={`repositories/${id}`}> Details </Link>
         </li>
         <br />
       </div>
@@ -48,8 +48,17 @@ export default class RenderRepos extends Component {
       }
     };
 
+    const mapDetailsUrl = () => {
+      if (searchedItems !== undefined) {
+        return searchedItems.map(item => item.url);
+      }
+    };
+
+    console.log("mapDetailsUrl", mapDetailsUrl());
+
     return (
       <div className="repositories-result">
+        <main>
         <h2>Repositories</h2>
         <h3>
           {repositories.total_count !== undefined &&
@@ -60,7 +69,15 @@ export default class RenderRepos extends Component {
           <ul>{mapItems()}</ul>
         </div>
         <br />
+        </main>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  repositories: state.repositories,
+  name: state.name
+});
+
+export default connect(mapStateToProps, null)(RenderRepos);

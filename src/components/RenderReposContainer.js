@@ -14,7 +14,7 @@ class RenderReposContainer extends Component {
 
 const mapStateToProps = state => ({
   repositories: state.repositories,
-  name: state.name
+  name: state.name,
 })
 
 export default connect(mapStateToProps)(RenderReposContainer)

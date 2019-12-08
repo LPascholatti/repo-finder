@@ -30,5 +30,13 @@
 
 .render-readme ul {
   list-style-type: none;
+  align-content: center;
   text-align: center;
+}
+
+.github-logo img {
+  align-content: center;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
 }

@@ -14,7 +14,7 @@ class SearchBarContainer extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
-    setTimeout(this.props.loadRepositories(this.state.name), 6000)
+    setTimeout(this.props.loadRepositories(this.state.name), 8000)
   }
 
   onSubmit = (event) => {

@@ -51,14 +51,6 @@ class RenderRepos extends Component {
       }
     };
 
-    const mapDetailsUrl = () => {
-      if (searchedItems !== undefined) {
-        return searchedItems.map(item => item.url);
-      }
-    };
-
-    console.log("mapDetailsUrl", mapDetailsUrl());
-
     return (
       <div className="repositories-result">
         <main>

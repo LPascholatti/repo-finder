@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 class RepoDetailsContainer extends Component {
 
   componentDidMount(){
-    console.log("running?")
     this.props.loadRepository(Number(this.props.match.params.id))
   }
 

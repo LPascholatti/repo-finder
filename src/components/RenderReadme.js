@@ -5,14 +5,17 @@ export default function RenderReadme(props) {
 
   console.log("props", props);
 
+  const readmeHtml = text;
+
   function createMarkup() {
-    return {__html: `${text}`};
+    if (readmeHtml !== undefined) { 
+    return { __html: `${readmeHtml}` }};
   }
 
   return (
     <div className="render-readme">
-      {!text && "Loading Readme..."}
-      <div dangerouslySetInnerHTML={createMarkup()}></div>
+      {!readmeHtml && "Loading Readme..."}
+      {readmeHtml && <div dangerouslySetInnerHTML={createMarkup()}></div>}
     </div>
   );
 }

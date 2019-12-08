@@ -51,7 +51,6 @@ export const loadRepositories = (name) => (dispatch, getState) => {
 }
 
 export const loadRepository = (id) => (dispatch) => {
-  console.log("id", id)
   request(`${baseUrl}/repositories/${id}`)
   .then(response => {
     const actionId = detailedId(id)
@@ -63,13 +62,11 @@ export const loadRepository = (id) => (dispatch) => {
 }
 
 export const loadReadme = (owner, name) => (dispatch) => {
-  if (owner && name) {
   request(`${baseUrl}/repos/${owner}/${name}/readme`)
   .set('Accept', 'application/vnd.github.v3.html')
   .then(response => {
     const readmeAction = requestReadme(response)
-    console.log("response", response)
     dispatch(readmeAction)
   })
   .catch(console.error)
-}}
+}

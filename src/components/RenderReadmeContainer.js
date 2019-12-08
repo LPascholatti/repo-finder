@@ -5,13 +5,20 @@ import RenderReadme from './RenderReadme';
 
 class RenderReadmeContainer extends Component {
 
+   getOwnerLogin() {
+    if (this.props.repository.owner !== undefined) {
+      return this.props.repository.owner.login
+    }
+  }
+
   componentDidMount() {
-    this.props.loadReadme(this.props.repository.owner.login, this.props.repository.name)
+    this.props.loadReadme(this.getOwnerLogin(), this.props.repository.name)
   }
 
   render() {
 
-    console.log("owner:", this.props.repository.owner.login)
+    console.log("owner:", this.getOwnerLogin())
+    console.log("name:", this.props.repository.name)
 
     return (<RenderReadme
     readme={this.props.readme}

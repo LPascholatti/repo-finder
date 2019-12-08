@@ -22,3 +22,8 @@
   max-width: 4rem;
   max-height: 4rem;
 }
+
+.avatar-detail img {
+  max-width: 7rem;
+  max-height: 7rem;
+}

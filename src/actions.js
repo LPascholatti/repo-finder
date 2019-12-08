@@ -63,10 +63,11 @@ export const loadRepository = (id) => (dispatch) => {
 }
 
 export const loadReadme = (owner, name) => (dispatch) => {
+  if (owner && name) {
   request(`${baseUrl}/repos/${owner}/${name}/readme`)
   .then(response => {
     const readmeAction = requestReadme(response.body)
     dispatch(readmeAction)
   })
   .catch(console.error)
-}
+}}

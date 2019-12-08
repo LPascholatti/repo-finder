@@ -27,3 +27,7 @@
   max-width: 7rem;
   max-height: 7rem;
 }
+
+.render-readme ul {
+  list-style-type: none;
+}

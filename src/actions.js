@@ -65,8 +65,10 @@ export const loadRepository = (id) => (dispatch) => {
 export const loadReadme = (owner, name) => (dispatch) => {
   if (owner && name) {
   request(`${baseUrl}/repos/${owner}/${name}/readme`)
+  .set('Accept', 'application/vnd.github.v3.html')
   .then(response => {
-    const readmeAction = requestReadme(response.body)
+    const readmeAction = requestReadme(response)
+    console.log("response", response)
     dispatch(readmeAction)
   })
   .catch(console.error)

@@ -1,14 +1,18 @@
-import React from 'react';
+import React from "react";
 
 export default function RenderReadme(props) {
+  const { text } = props.readme;
 
-  const { _links, content } = props.readme;
+  console.log("props", props);
 
-  console.log("links content readme", _links, content)
+  function createMarkup() {
+    return {__html: `${text}`};
+  }
 
   return (
-    <div>
-      
+    <div className="render-readme">
+      {!text && "Loading Readme..."}
+      <div dangerouslySetInnerHTML={createMarkup()}></div>
     </div>
-  )
+  );
 }

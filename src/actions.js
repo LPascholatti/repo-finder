@@ -7,6 +7,7 @@ export const REPOSITORY_FETCH = 'REPOSITORY_FETCH'
 export const SEARCHED_NAME = 'SEARCHED_NAME'
 export const REPOSITORIES_ITEMS = 'REPOSITORIES_ITEMS'
 export const DETAIL_ID = "DETAIL_ID"
+export const README_FETCH = "README_FETCH"
 
 const repositoriesFetch = repositories => ({
   type: REPOSITORIES_FETCH,
@@ -26,6 +27,11 @@ const searchedName = name => ({
 const detailedId = id => ({
   type: DETAIL_ID,
   payload: id
+})
+
+const requestReadme = readme => ({
+  type: README_FETCH,
+  payload: readme
 })
 
 export const loadRepositories = (name) => (dispatch, getState) => {
@@ -52,6 +58,15 @@ export const loadRepository = (id) => (dispatch) => {
     const actionResponse = repositoryFetch(response.body)
     dispatch(actionId)
     dispatch(actionResponse)
+  })
+  .catch(console.error)
+}
+
+export const loadReadme = (owner, name) => (dispatch) => {
+  request(`${baseUrl}/repos/${owner}/${name}/readme`)
+  .then(response => {
+    const readmeAction = requestReadme(response.body)
+    dispatch(readmeAction)
   })
   .catch(console.error)
 }

@@ -13,6 +13,7 @@ export default function SearchBarForm(props) {
       <h1>Search GitHub Repositories</h1>
       <form onSubmit={onSubmit}>
         <label>
+          {`Search: `}
           <input
             type="text"
             name="name"

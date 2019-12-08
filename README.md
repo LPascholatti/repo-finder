@@ -2,7 +2,7 @@
 
 ## Search GitHub Repositories Tool
 
-Deployed on Netlify: https://frosty-panini-72ba85.netlify.com/
+Deployed on Netlify: https://repo-finder.netlify.com/
 
 ### Created using ```create-react-app```, managing states with Redux. 
 

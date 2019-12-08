@@ -7,6 +7,7 @@ export const REPOSITORY_FETCH = 'REPOSITORY_FETCH'
 export const SEARCHED_NAME = 'SEARCHED_NAME'
 export const REPOSITORIES_ITEMS = 'REPOSITORIES_ITEMS'
 export const DETAIL_ID = "DETAIL_ID"
+export const README_FETCH = "README_FETCH"
 
 const repositoriesFetch = repositories => ({
   type: REPOSITORIES_FETCH,
@@ -26,6 +27,11 @@ const searchedName = name => ({
 const detailedId = id => ({
   type: DETAIL_ID,
   payload: id
+})
+
+const requestReadme = readme => ({
+  type: README_FETCH,
+  payload: readme
 })
 
 export const loadRepositories = (name) => (dispatch, getState) => {
@@ -55,3 +61,15 @@ export const loadRepository = (id) => (dispatch) => {
   })
   .catch(console.error)
 }
+
+export const loadReadme = (owner, name) => (dispatch) => {
+  if (owner && name) {
+  request(`${baseUrl}/repos/${owner}/${name}/readme`)
+  .set('Accept', 'application/vnd.github.v3.html')
+  .then(response => {
+    const readmeAction = requestReadme(response)
+    console.log("response", response)
+    dispatch(readmeAction)
+  })
+  .catch(console.error)
+}}

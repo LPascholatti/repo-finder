@@ -5,6 +5,11 @@ import RenderReadme from "./RenderReadme";
 
 class RenderReadmeContainer extends Component {
 
+  state = {
+    owner: this.getOwnerLogin(),
+    name: this.props.repository.name
+  }
+
   getOwnerLogin() {
     console.log("owner in GetOwnerLogin", this.props.repository.owner);
     if (this.props.repository.owner !== undefined) {

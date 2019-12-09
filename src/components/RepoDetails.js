@@ -29,7 +29,7 @@ export default function RepoDetails(props) {
     <div className={"repo-details"}>
       <main>
         <button>
-          <Link to={"/"}>Return</Link>
+          <Link to={"/home"}>Return</Link>
         </button>
         <br />
         <h1 style={{ color: "blue" }}>{`${name}`}</h1>

@@ -22,7 +22,8 @@ class RepoDetailsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    repository: state.repository
+    repository: state.repository,
+    readme: state.readme
   }
 }
 

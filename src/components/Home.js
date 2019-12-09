@@ -17,6 +17,7 @@ export default class Home extends Component {
             <img alt="logo" src={logo} />
           </div>
           <h1>Search GitHub Repositories</h1>
+          <br/>
           <Navbar bg="dark" variant="dark" expand="lg">
             <Navbar.Brand href="home">Repo Finder</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

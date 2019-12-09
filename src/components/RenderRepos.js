@@ -54,6 +54,7 @@ class RenderRepos extends Component {
     return (
       <div className="repositories-result">
         <main>
+          <br/>
         <h2>Repositories</h2>
         <h3>
           {repositories.total_count !== undefined &&

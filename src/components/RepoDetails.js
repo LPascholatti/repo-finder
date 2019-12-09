@@ -48,7 +48,9 @@ export default function RepoDetails(props) {
           URL: <a href={html_url}>{html_url}</a>
         </p>
         <br />
-        <Link to={`${id}/readme`}>Render Readme</Link>
+        <Link to={`${id}/readme`}>
+          <button>Render Readme</button>
+        </Link>
       </main>
     </div>
   );

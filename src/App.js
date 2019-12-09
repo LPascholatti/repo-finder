@@ -14,7 +14,7 @@ function App() {
         <hr />
       </header>
       <main>
-        <Route path="/home" exact component={RenderReposContainer} />
+        <Route path="/" exact component={RenderReposContainer} />
         <Route path="/repositories/:id" component={RepoDetailsContainer} />
       </main>
     </div>

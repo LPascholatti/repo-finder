@@ -4,11 +4,10 @@ import { loadReadme } from "../actions";
 import RenderReadme from "./RenderReadme";
 
 class RenderReadmeContainer extends Component {
-
   state = {
     owner: this.getOwnerLogin(),
     name: this.props.repository.name
-  }
+  };
 
   getOwnerLogin() {
     console.log("owner in GetOwnerLogin", this.props.repository.owner);
@@ -19,17 +18,15 @@ class RenderReadmeContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.loadReadme(this.getOwnerLogin(), this.props.repository.name);
-  }
-
-  componentWillMount(){
-    this.props.loadReadme(this.getOwnerLogin(), this.props.repository.name);
+    if (this.props.repository.name && this.getOwnerLogin()) {
+      this.props.loadReadme(this.getOwnerLogin(), this.props.repository.name);
+    }
   }
 
   render() {
     console.log("owner:", this.getOwnerLogin());
     console.log("name:", this.props.repository.name);
-    
+
     return <RenderReadme readme={this.props.readme} />;
   }
 }

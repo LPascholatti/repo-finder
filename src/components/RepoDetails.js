@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RenderReadmeContainer from "./RenderReadmeContainer";
 
 export default function RepoDetails(props) {
   console.log("props in RepoDetails", props);
@@ -14,7 +13,8 @@ export default function RepoDetails(props) {
     open_issues_count,
     stargazers_count,
     watchers,
-    owner
+    owner,
+    id
   } = props.repository;
 
   const getOwnerAvatar = () => {
@@ -48,7 +48,7 @@ export default function RepoDetails(props) {
           URL: <a href={html_url}>{html_url}</a>
         </p>
         <br />
-        <RenderReadmeContainer />
+        <Link to={`${id}/readme`}>Render Readme</Link>
       </main>
     </div>
   );

@@ -4,6 +4,7 @@ import SearchBarContainer from "./components/SearchBarContainer";
 import RenderReposContainer from "./components/RenderReposContainer";
 import { Route } from "react-router-dom";
 import RepoDetailsContainer from "./components/RepoDetailsContainer";
+import RenderReadmeContainer from "./components/RenderReadmeContainer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <main>
         <Route path="/" exact component={RenderReposContainer} />
         <Route path="/repositories/:id" component={RepoDetailsContainer} />
+        <Route path="/repositories/:id/readme" component={RenderReadmeContainer} />
       </main>
     </div>
   );

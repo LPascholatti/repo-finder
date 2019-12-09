@@ -9,6 +9,10 @@ class RepoDetailsContainer extends Component {
     this.props.loadRepository(Number(this.props.match.params.id))
   }
 
+  componentWillMount(){
+    this.props.loadRepository(Number(this.props.match.params.id))
+  }
+
   render() {
     return (<RepoDetails
     repository={this.props.repository}

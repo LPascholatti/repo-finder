@@ -5,7 +5,7 @@ export default class Login extends Component {
     return (
       <div>
         <a href="https://github.com/login/oauth/authorize?client_id=fdc2a7f2b54c77163325&scope=public_repo">
-          Login With GitHub
+          <button>Login With GitHub</button>
         </a>
       </div>
     )

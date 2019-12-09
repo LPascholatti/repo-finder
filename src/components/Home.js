@@ -24,6 +24,7 @@ export default class Home extends Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <Nav.Link href="home">Home</Nav.Link>
+                <Nav.Link href="https://github.com/login/oauth/authorize?client_id=fdc2a7f2b54c77163325&scope=public_repo">Login</Nav.Link>
               </Nav>
           <SearchBarContainer />
             </Navbar.Collapse>

@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "./logo.png"
+import logo from "./logo.png";
+import Login from "./Login";
 
 export default function SearchBarForm(props) {
   const { onSubmit, onChange, values } = props;
@@ -7,7 +8,7 @@ export default function SearchBarForm(props) {
   return (
     <div className="search-bar">
       <div className="github-logo">
-      <img alt="logo" src={logo}/>
+        <img alt="logo" src={logo} />
       </div>
       <h1>Search GitHub Repositories</h1>
       <form onSubmit={onSubmit}>
@@ -23,6 +24,8 @@ export default function SearchBarForm(props) {
         </label>
         <input type="submit" />
       </form>
+      <br />
+      <Login />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { loadRepositories } from '../actions';
 
 class RenderRepos extends Component {
   renderRepos(items) {
@@ -19,7 +21,7 @@ class RenderRepos extends Component {
         <li key={name}>
           <h3 style={{ color: "blue" }}>{name}</h3>
           <div className="avatar">
-          <img src={owner.avatar_url} alt={name}/>
+            <img src={owner.avatar_url} alt={name} />
           </div>
           <h4> Owner:{owner.login}</h4>
           <h4>
@@ -29,7 +31,7 @@ class RenderRepos extends Component {
           <h4>Language: {language}</h4>
           <p>Description:{description}</p>
           <br />
-          <Link to={`repositories/${id}`}> 
+          <Link to={`repositories/${id}`}>
             <button>Details</button>
           </Link>
         </li>
@@ -51,20 +53,42 @@ class RenderRepos extends Component {
       }
     };
 
+    const reposLength = () => {
+      if (repositories.items !== undefined) {
+        return repositories.items.length;
+      }
+      else {
+        return 0
+      }
+    };
+
+    console.log("length", reposLength())
+
     return (
       <div className="repositories-result">
         <main>
-          <br/>
-        <h2>Repositories</h2>
-        <h3>
-          {repositories.total_count !== undefined &&
-            `You found ${repositories.total_count} repositories`}
-        </h3>
-        <br />
-        <div className="rendered-box">
-          <ul>{mapItems()}</ul>
-        </div>
-        <br />
+          <br />
+          <h2>Repositories</h2>
+          <h3>
+            {repositories.total_count !== undefined &&
+              `You found ${repositories.total_count} repositories`}
+          </h3>
+          <br />
+          <div className="rendered-box">
+            <ul>{mapItems()}</ul>
+            <InfiniteScroll
+              dataLength={reposLength()}
+              next={this.props.loadRepositories(this.props.name)}
+              hasMore={true}
+              loader={<h4>Loading...</h4>}
+              endMessage={
+                <p style={{ textAlign: "center" }}>
+                  <b>Yay! You have seen it all</b>
+                </p>
+              }
+            ></InfiniteScroll>
+          </div>
+          <br />
         </main>
       </div>
     );
@@ -76,4 +100,4 @@ const mapStateToProps = state => ({
   name: state.name
 });
 
-export default connect(mapStateToProps, null)(RenderRepos);
+export default connect(mapStateToProps, {loadRepositories})(RenderRepos);

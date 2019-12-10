@@ -4,15 +4,11 @@ import RenderRepos from './RenderRepos';
 
 class RenderReposContainer extends Component {
 
-  state = {
-    time: this.props.time
-  }
-
   render() {
     console.log("this.props.time", this.props.time)
     return (<RenderRepos
     repositories={this.props.repositories}
-    time={this.state.time}
+    time={this.props.time}
     />
     )
   }

@@ -69,10 +69,12 @@ class RenderRepos extends Component {
         <main>
           <br />
           <h2>Repositories</h2>
+          <br/>
           <h4>
             {repositories.total_count !== undefined &&
               `You found ${repositories.total_count} repositories`}
-              {/* {time.time && `Request time: ${time.time}`} */}
+              <br/>
+              {time !== 0 && `Request time: ${time} milliseconds`}
           </h4>
           <br />
           <div className="rendered-box">

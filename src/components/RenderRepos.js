@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { loadRepositories } from '../actions';
+import { loadNextRepositories } from "../actions";
 
 class RenderRepos extends Component {
   renderRepos(items) {
@@ -18,7 +18,7 @@ class RenderRepos extends Component {
 
     return (
       <div className="rendered-repos">
-        <li key={name}>
+        <li key={id.toString()}>
           <h3 style={{ color: "blue" }}>{name}</h3>
           <div className="avatar">
             <img src={owner.avatar_url} alt={name} />
@@ -41,8 +41,10 @@ class RenderRepos extends Component {
   }
 
   render() {
-    const { repositories } = this.props;
+    const { repositories, time, page } = this.props;
     console.log("repositories", repositories);
+    console.log("time", time);
+    console.log("page", page);
 
     const searchedItems = repositories.items;
     console.log("searchedItems", searchedItems);
@@ -56,37 +58,48 @@ class RenderRepos extends Component {
     const reposLength = () => {
       if (repositories.items !== undefined) {
         return repositories.items.length;
-      }
-      else {
-        return 0
+      } else {
+        return 0;
       }
     };
 
-    console.log("length", reposLength())
+    console.log("length", reposLength());
+
+    const plusPage = () => {
+      return this.props.page + 1;
+    };
 
     return (
       <div className="repositories-result">
         <main>
           <br />
           <h2>Repositories</h2>
-          <h3>
+          <br />
+          <h4>
             {repositories.total_count !== undefined &&
               `You found ${repositories.total_count} repositories`}
-          </h3>
+            <br />
+            {time !== 0 && `Request time: ${time} milliseconds`}
+          </h4>
           <br />
           <div className="rendered-box">
             <ul>{mapItems()}</ul>
             <InfiniteScroll
               dataLength={reposLength()}
-              next={this.props.loadRepositories(this.props.name)}
+              next={this.props.loadNextRepositories(
+                this.props.name,
+                plusPage()
+              )}
               hasMore={true}
-              loader={<h4>Loading...</h4>}
+              loader={reposLength() >= 90 && <h4>Loading more...</h4>}
               endMessage={
                 <p style={{ textAlign: "center" }}>
                   <b>Yay! You have seen it all</b>
                 </p>
               }
-            ></InfiniteScroll>
+            >
+            {mapItems()}  
+            </InfiniteScroll>
           </div>
           <br />
         </main>
@@ -100,4 +113,4 @@ const mapStateToProps = state => ({
   name: state.name
 });
 
-export default connect(mapStateToProps, {loadRepositories})(RenderRepos);
+export default connect(mapStateToProps, { loadNextRepositories })(RenderRepos);

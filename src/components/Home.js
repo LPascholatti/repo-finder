@@ -7,6 +7,7 @@ import SearchBarContainer from "./SearchBarContainer";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import logo from "./logo.png";
+import {DebounceInput} from 'react-debounce-input';
 
 export default class Home extends Component {
   render() {
@@ -26,7 +27,12 @@ export default class Home extends Component {
                 <Nav.Link href="home">Home</Nav.Link>
                 <Nav.Link href="https://github.com/login/oauth/authorize?client_id=fdc2a7f2b54c77163325&scope=public_repo">Login</Nav.Link>
               </Nav>
-          <SearchBarContainer />
+          <DebounceInput
+          element={SearchBarContainer}
+          minLength={2}
+          debounceTimeout={300}
+          />
+          {/* <SearchBarContainer/> */}
             </Navbar.Collapse>
           </Navbar>
         </header>

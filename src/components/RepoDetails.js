@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button'
 
 export default function RepoDetails(props) {
   console.log("props in RepoDetails", props);
@@ -28,10 +29,11 @@ export default function RepoDetails(props) {
   return (
     <div className={"repo-details"}>
       <main>
-        <button>
+        <Button variant="dark">
           <Link to={"/"}>Return</Link>
-        </button>
+        </Button>
         <br />
+        <br />  
         <h1 style={{ color: "blue" }}>{`${name}`}</h1>
         <br />
         <div className="avatar-detail">
@@ -49,7 +51,7 @@ export default function RepoDetails(props) {
         </p>
         <br />
         <Link to={`${id}/readme`}>
-          <button>Render Readme</button>
+          <Button variant="dark">Render Readme</Button>
         </Link>
       </main>
     </div>

@@ -1,5 +1,4 @@
 import React from "react";
-// import Login from "./Login";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -7,7 +6,7 @@ import Button from "react-bootstrap/Button";
 
 export default function SearchBarForm(props) {
   const { onSubmit, onChange, values } = props;
-  console.log("onchange", values.name);
+  console.log("onchange values.name", values.name);
 
   return (
     <div className="search-bar">
@@ -16,11 +15,6 @@ export default function SearchBarForm(props) {
           <InputGroup
             className="mb-3"
             size="sm"
-            type="text"
-            name="name"
-            onChange={onChange}
-            onSubmit={onSubmit}
-            value={values.name}
           >
             <FormControl
               placeholder="Search Repositories by Name"

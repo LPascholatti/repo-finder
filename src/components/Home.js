@@ -8,6 +8,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import logo from "./logo.png";
 import {DebounceInput} from 'react-debounce-input';
+import Clock from './Clock'
 
 export default class Home extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class Home extends Component {
           <div className="github-logo">
             <img alt="logo" src={logo} />
           </div>
+          <Clock/>
           <h1>Search GitHub Repositories</h1>
           <br/>
           <Navbar bg="dark" variant="dark" expand="lg">

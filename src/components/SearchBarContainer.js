@@ -6,7 +6,7 @@ import SearchBarForm from './SearchBarForm'
 class SearchBarContainer extends Component {
 
   state = {
-    name: ''
+    name: ''  
   }
 
   onChange = (event) => {

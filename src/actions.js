@@ -41,10 +41,11 @@ const trackPerformance = time => ({
 })
 
 export const loadRepositories = name => (dispatch, getState) => {
-  let t0 = performance.now()
+  
   const state = getState();
   const { repositories } = state;
 
+  let t0 = performance.now()
   if (!repositories.length) {
     request(`${baseUrl}/search/repositories?q=${name}&page=1&per_page=100`)
       .then(response => {
@@ -54,14 +55,14 @@ export const loadRepositories = name => (dispatch, getState) => {
         dispatch(searchAction);
       })
       .catch(console.error);
-      console.log("performance", window.performance)
   }
-
   let t1 = performance.now()
-  const requestTime = t1 - t0
-  const timeAction = trackPerformance(requestTime)
+
+  const time = t1 - t0
+  const timeAction = trackPerformance(time)
   dispatch(timeAction)
-  console.log(`Request time took ${requestTime} milliseconds`)
+  console.log(`Request time took ${time} milliseconds`)
+  console.log("typeof requestTime", typeof time)
 };
 
 export const loadRepository = id => dispatch => {

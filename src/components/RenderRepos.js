@@ -18,7 +18,7 @@ class RenderRepos extends Component {
 
     return (
       <div className="rendered-repos">
-        <li key={name}>
+        <li key={id.toString()}>
           <h3 style={{ color: "blue" }}>{name}</h3>
           <div className="avatar">
             <img src={owner.avatar_url} alt={name} />
@@ -41,8 +41,9 @@ class RenderRepos extends Component {
   }
 
   render() {
-    const { repositories } = this.props;
+    const { repositories, time } = this.props;
     console.log("repositories", repositories);
+    console.log("time", time)
 
     const searchedItems = repositories.items;
     console.log("searchedItems", searchedItems);
@@ -68,10 +69,11 @@ class RenderRepos extends Component {
         <main>
           <br />
           <h2>Repositories</h2>
-          <h3>
+          <h4>
             {repositories.total_count !== undefined &&
               `You found ${repositories.total_count} repositories`}
-          </h3>
+              {/* {time.time && `Request time: ${time.time}`} */}
+          </h4>
           <br />
           <div className="rendered-box">
             <ul>{mapItems()}</ul>

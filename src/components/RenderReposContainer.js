@@ -4,9 +4,15 @@ import RenderRepos from './RenderRepos';
 
 class RenderReposContainer extends Component {
 
+  state = {
+    time: this.props.time
+  }
+
   render() {
+    console.log("this.props.time", this.props.time)
     return (<RenderRepos
     repositories={this.props.repositories}
+    time={this.state.time}
     />
     )
   }
@@ -14,7 +20,7 @@ class RenderReposContainer extends Component {
 
 const mapStateToProps = state => ({
   repositories: state.repositories,
-  name: state.name,
+  time: state.time
 })
 
 export default connect(mapStateToProps)(RenderReposContainer)

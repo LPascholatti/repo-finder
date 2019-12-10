@@ -43,8 +43,8 @@ class RenderRepos extends Component {
   render() {
     const { repositories, time, page } = this.props;
     console.log("repositories", repositories);
-    console.log("time", time)
-    console.log("page", page)
+    console.log("time", time);
+    console.log("page", page);
 
     const searchedItems = repositories.items;
     console.log("searchedItems", searchedItems);
@@ -66,27 +66,30 @@ class RenderRepos extends Component {
     console.log("length", reposLength());
 
     const plusPage = () => {
-      return this.props.page + 1
-    }
+      return this.props.page + 1;
+    };
 
     return (
       <div className="repositories-result">
         <main>
           <br />
           <h2>Repositories</h2>
-          <br/>
+          <br />
           <h4>
             {repositories.total_count !== undefined &&
               `You found ${repositories.total_count} repositories`}
-              <br/>
-              {time !== 0 && `Request time: ${time} milliseconds`}
+            <br />
+            {time !== 0 && `Request time: ${time} milliseconds`}
           </h4>
           <br />
           <div className="rendered-box">
             <ul>{mapItems()}</ul>
             <InfiniteScroll
               dataLength={reposLength()}
-              next={this.props.loadNextRepositories(this.props.name, plusPage())}
+              next={this.props.loadNextRepositories(
+                this.props.name,
+                plusPage()
+              )}
               hasMore={true}
               loader={reposLength() >= 90 && <h4>Loading more...</h4>}
               endMessage={
@@ -94,7 +97,9 @@ class RenderRepos extends Component {
                   <b>Yay! You have seen it all</b>
                 </p>
               }
-            ></InfiniteScroll>
+            >
+            {mapItems()}  
+            </InfiniteScroll>
           </div>
           <br />
         </main>

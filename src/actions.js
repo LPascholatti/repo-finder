@@ -8,6 +8,7 @@ export const SEARCHED_NAME = "SEARCHED_NAME";
 export const REPOSITORIES_ITEMS = "REPOSITORIES_ITEMS";
 export const DETAIL_ID = "DETAIL_ID";
 export const README_FETCH = "README_FETCH";
+export const PERFORMANCE_TIME = "PERFORMANCE_TIME";
 
 const repositoriesFetch = repositories => ({
   type: REPOSITORIES_FETCH,
@@ -34,12 +35,18 @@ const requestReadme = readme => ({
   payload: readme
 });
 
+const trackPerformance = time => ({
+  type: PERFORMANCE_TIME,
+  payload: time
+})
+
 export const loadRepositories = name => (dispatch, getState) => {
+  let t0 = performance.now()
   const state = getState();
   const { repositories } = state;
 
   if (!repositories.length) {
-    request(`${baseUrl}/search/repositories?q=${name}`)
+    request(`${baseUrl}/search/repositories?q=${name}&page=1&per_page=100`)
       .then(response => {
         const fetchAction = repositoriesFetch(response.body);
         const searchAction = searchedName(name);
@@ -47,7 +54,14 @@ export const loadRepositories = name => (dispatch, getState) => {
         dispatch(searchAction);
       })
       .catch(console.error);
+      console.log("performance", window.performance)
   }
+
+  let t1 = performance.now()
+  const requestTime = t1 - t0
+  const timeAction = trackPerformance(requestTime)
+  dispatch(timeAction)
+  console.log(`Request time took ${requestTime} milliseconds`)
 };
 
 export const loadRepository = id => dispatch => {

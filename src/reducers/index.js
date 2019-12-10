@@ -3,10 +3,12 @@ import repositories from '../reducers/repositories';
 import repository from '../reducers/repository';
 import name from './name';
 import readme from './readme';
+import time from './readme';
 
 export default combineReducers({
   repositories,
   repository,
   name,
-  readme
+  readme,
+  time
 })

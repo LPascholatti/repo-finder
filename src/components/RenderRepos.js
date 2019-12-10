@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { loadRepositories } from '../actions';
+// import InfiniteScroll from "react-infinite-scroll-component";
+import { loadRepositories } from "../actions";
 
 class RenderRepos extends Component {
   renderRepos(items) {
@@ -56,13 +56,12 @@ class RenderRepos extends Component {
     const reposLength = () => {
       if (repositories.items !== undefined) {
         return repositories.items.length;
-      }
-      else {
-        return 0
+      } else {
+        return 0;
       }
     };
 
-    console.log("length", reposLength())
+    console.log("length", reposLength());
 
     return (
       <div className="repositories-result">
@@ -76,7 +75,7 @@ class RenderRepos extends Component {
           <br />
           <div className="rendered-box">
             <ul>{mapItems()}</ul>
-            <InfiniteScroll
+            {/* <InfiniteScroll
               dataLength={reposLength()}
               next={this.props.loadRepositories(this.props.name)}
               hasMore={true}
@@ -86,7 +85,7 @@ class RenderRepos extends Component {
                   <b>Yay! You have seen it all</b>
                 </p>
               }
-            ></InfiniteScroll>
+            ></InfiniteScroll> */}
           </div>
           <br />
         </main>
@@ -100,4 +99,4 @@ const mapStateToProps = state => ({
   name: state.name
 });
 
-export default connect(mapStateToProps, {loadRepositories})(RenderRepos);
+export default connect(mapStateToProps, { loadRepositories })(RenderRepos);

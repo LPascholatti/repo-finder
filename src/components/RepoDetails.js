@@ -33,6 +33,7 @@ export default function RepoDetails(props) {
           <Link to={"/"}>Return</Link>
         </Button>
         <br />
+        <br />  
         <h1 style={{ color: "blue" }}>{`${name}`}</h1>
         <br />
         <div className="avatar-detail">

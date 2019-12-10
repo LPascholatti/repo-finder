@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { loadNextRepositories } from "../actions";
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
 
 class RenderRepos extends Component {
   renderRepos(items) {
@@ -19,11 +22,18 @@ class RenderRepos extends Component {
     return (
       <div className="rendered-repos">
         <li key={id.toString()}>
-          <h3 style={{ color: "blue" }}>{name}</h3>
+          <Jumbotron fluid>
+          <h3>
+            <Badge variant="dark">
+            {name}
+            </Badge>
+          </h3>
+          <br/>
           <div className="avatar">
             <img src={owner.avatar_url} alt={name} />
           </div>
-          <h4> Owner:{owner.login}</h4>
+          <br/>
+          <h4> {`Owner: ${owner.login}`}</h4>
           <h4>
             URL: <a href={html_url}>{html_url}</a>
           </h4>
@@ -32,10 +42,10 @@ class RenderRepos extends Component {
           <p>Description:{description}</p>
           <br />
           <Link to={`repositories/${id}`}>
-            <button>Details</button>
+            <Button variant="dark">Details</Button>
           </Link>
+          </Jumbotron>
         </li>
-        <br />
       </div>
     );
   }
@@ -72,8 +82,12 @@ class RenderRepos extends Component {
     return (
       <div className="repositories-result">
         <main>
-          <br />
-          <h2>Repositories</h2>
+          <Jumbotron fluid>
+          <h2>
+            <Badge variant="dark">
+            Repositories Search:
+            </Badge>
+          </h2>
           <br />
           <h4>
             {repositories.total_count !== undefined &&
@@ -81,7 +95,7 @@ class RenderRepos extends Component {
             <br />
             {time !== 0 && `Request time: ${time} milliseconds`}
           </h4>
-          <br />
+          </Jumbotron>
           <div className="rendered-box">
             <ul>{mapItems()}</ul>
             <InfiniteScroll

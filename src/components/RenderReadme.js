@@ -1,4 +1,6 @@
 import React from "react";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Badge from "react-bootstrap/Badge";
 
 export default function RenderReadme(props) {
   const { text } = props.readme;
@@ -15,11 +17,15 @@ export default function RenderReadme(props) {
 
   return (
     <div className="repo-details">
-      <h2>Readme</h2>
-      <div className="render-readme">
-        {!readmeHtml && "Loading Readme..."}
-        {readmeHtml && <div dangerouslySetInnerHTML={createMarkup()}></div>}
-      </div>
+      <Jumbotron fluid>
+        <h2>
+          <Badge variant="dark">Readme</Badge>
+        </h2>
+        <div className="render-readme">
+          {!readmeHtml && "Loading Readme..."}
+          {readmeHtml && <div dangerouslySetInnerHTML={createMarkup()}></div>}
+        </div>
+      </Jumbotron>
     </div>
   );
 }

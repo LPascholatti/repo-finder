@@ -14,6 +14,10 @@ Ater that, you are able to see the number of repositories containing that name f
 
 The number of repositories found and the amount of time taken to make that request will be rendered in the screen. Below, the rist of repositories will be rendered. 
 
+-Repo Finder is currently rendering up to 100 repositories searched.
+
+-Under Implementation: Infinite Scroll of Repositories.
+
 ## Login
 
 You can directly login to GitHub via login button (currently on implementation). 

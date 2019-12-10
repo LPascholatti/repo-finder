@@ -12,13 +12,10 @@ export default function SearchBarForm(props) {
     <div className="search-bar">
       <Form inline onSubmit={onSubmit}>
         <Form.Label>
-          <InputGroup
-            className="mb-3"
-            size="sm"
-          >
+          <InputGroup className="mb-3">
             <FormControl
-              placeholder="Search Repositories by Name"
-              aria-label="Search Repositories by Name"
+              placeholder="Search Repositories"
+              aria-label="Search Repositories"
               aria-describedby="basic-addon2"
               type="text"
               name="name"

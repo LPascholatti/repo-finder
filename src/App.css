@@ -26,6 +26,7 @@
 .avatar-detail img {
   max-width: 7rem;
   max-height: 7rem;
+  padding: 1rem;
 }
 
 .render-readme ul {

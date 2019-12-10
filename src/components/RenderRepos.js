@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import InfiniteScroll from "react-infinite-scroll-component";
-import { loadRepositories } from "../actions";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { loadNextRepositories } from "../actions";
 
 class RenderRepos extends Component {
   renderRepos(items) {
@@ -41,9 +41,10 @@ class RenderRepos extends Component {
   }
 
   render() {
-    const { repositories, time } = this.props;
+    const { repositories, time, page } = this.props;
     console.log("repositories", repositories);
     console.log("time", time)
+    console.log("page", page)
 
     const searchedItems = repositories.items;
     console.log("searchedItems", searchedItems);
@@ -64,6 +65,10 @@ class RenderRepos extends Component {
 
     console.log("length", reposLength());
 
+    const plusPage = () => {
+      return this.props.page + 1
+    }
+
     return (
       <div className="repositories-result">
         <main>
@@ -79,17 +84,17 @@ class RenderRepos extends Component {
           <br />
           <div className="rendered-box">
             <ul>{mapItems()}</ul>
-            {/* <InfiniteScroll
+            <InfiniteScroll
               dataLength={reposLength()}
-              next={this.props.loadRepositories(this.props.name)}
+              next={this.props.loadNextRepositories(this.props.name, plusPage())}
               hasMore={true}
-              loader={<h4>Loading...</h4>}
+              loader={reposLength() >= 90 && <h4>Loading more...</h4>}
               endMessage={
                 <p style={{ textAlign: "center" }}>
                   <b>Yay! You have seen it all</b>
                 </p>
               }
-            ></InfiniteScroll> */}
+            ></InfiniteScroll>
           </div>
           <br />
         </main>
@@ -103,4 +108,4 @@ const mapStateToProps = state => ({
   name: state.name
 });
 
-export default connect(mapStateToProps, { loadRepositories })(RenderRepos);
+export default connect(mapStateToProps, { loadNextRepositories })(RenderRepos);

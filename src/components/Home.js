@@ -8,9 +8,10 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import logo from "./logo.png";
 import {DebounceInput} from 'react-debounce-input';
-import Clock from './Clock'
+import Clock from './Clock';
 
 export default class Home extends Component {
+
   render() {
     return (
       <div className="home">

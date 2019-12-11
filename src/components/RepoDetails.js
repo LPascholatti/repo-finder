@@ -32,9 +32,6 @@ export default function RepoDetails(props) {
     <div className={"repo-details"}>
       <main>
         <Jumbotron fluid>
-          <Button variant="dark">
-            <Link to={"/"}>Return</Link>
-          </Button>
           <br />
           <br />
           <h1>
@@ -55,10 +52,16 @@ export default function RepoDetails(props) {
             URL: <a href={html_url}>{html_url}</a>
           </p>
           <br />
-          <Link to={`${id}/readme`}>
-            <Button variant="dark">Render Readme</Button>
-          </Link>
-        </Jumbotron>
+          <div className="details-buttons">
+            <Link to={`${id}/readme`}>
+              <Button variant="dark">Render Readme</Button>
+            </Link>
+            <div className="divider"></div>
+            <Link to={"/"}>
+              <Button variant="dark">Return</Button>
+            </Link>
+            </div>
+          </Jumbotron>
       </main>
     </div>
   );

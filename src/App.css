@@ -7,13 +7,11 @@
 }
 
 .rendered-repos li {
-  border: solid;
   padding: 1rem;
   margin: 0.5rem;
 }
 
 .repo-details {
-  border: solid;
   padding: 3rem;
   margin: 1rem;
 }
@@ -39,5 +37,16 @@
   align-content: center;
   width: 6rem;
   height: 6rem;
+  padding: 1rem;
+}
+
+.divider {
+  height: auto;
+  display: inline-block;
+  width: 10px;
+}
+
+.details-buttons {
+  align-content: center;
   padding: 1rem;
 }

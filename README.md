@@ -5,22 +5,22 @@
 Deployed on Netlify: https://repo-finder.netlify.com/
 Deployed on Heroku: http://repo-finder.herokuapp.com/
 
-### Created using ```create-react-app```, managing states with Redux. 
+### Created using ```create-react-app```, managing states with Redux/React-Redux packages. 
 
 ## Search Repositories
 
 To search for a GitHub repository you can write a "Repository Name" in the input box located in the page's Navbar. 
 Ater that, you are able to see the number of repositories containing that name found in GitHub's API.
 
-The number of repositories found and the amount of time taken to make that request will be rendered in the screen. Below, the rist of repositories will be rendered. 
+The number of repositories found and the amount of time taken to make that request will be rendered in the screen. Below, the list of repositories will be rendered. 
 
 -Repo Finder is currently rendering up to 100 repositories searched.
 
--Under Implementation: Infinite Scroll of Repositories.
+-Development: Infinite Scroll of Repositories.
 
 ## Login
 
-You can directly login to GitHub via login button (currently on implementation). 
+You can directly login to GitHub via login button, that redirects you back to Repo Finder (currently on development). 
 
 ## Repository Details
 
@@ -30,4 +30,4 @@ Some of the information detailed in this page are: 1) amount of forks, 2) amount
 
 ## Render Readme
 
-In the Repository Details page, you can render its readme. To render a readme, click on the 'Render Readme' button in the botton of the details page. 
+In the Repository Details page, you can render its readme. To render a readme, click on the 'Render Readme' button in the botton of the details page.

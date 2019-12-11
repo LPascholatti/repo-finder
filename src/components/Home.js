@@ -35,7 +35,6 @@ export default class Home extends Component {
           minLength={2}
           debounceTimeout={300}
           />
-          {/* <SearchBarContainer/> */}
             </Navbar.Collapse>
           </Navbar>
         </header>

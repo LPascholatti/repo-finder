@@ -7,6 +7,8 @@ Deployed on Heroku: http://repo-finder.herokuapp.com/
 
 ### Created using ```create-react-app```, managing states with Redux/React-Redux packages. 
 
+![Repo Finder Demo Gif](repo-finder.gif)
+
 ## Search Repositories
 
 To search for a GitHub repository you can write a "Repository Name" in the input box located in the page's Navbar. 
